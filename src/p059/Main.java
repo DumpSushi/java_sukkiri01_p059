@@ -3,6 +3,7 @@ package p059;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.Period;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
@@ -56,6 +57,18 @@ public class Main {
 			{
 				System.out.println("nowはdより新しい");
 			}
+		}
+
+		// list 2-5
+		{
+			LocalDate d1 = LocalDate.of(2012, 1, 1);
+			LocalDate d2 = LocalDate.of(2012, 1, 4);
+
+			Period p1 = Period.ofDays(3);
+			Period p2 = Period.between(d1, d2);
+
+			LocalDate d3 = d2.plus(p2);
+			System.out.println(d3);
 		}
 	}
 
