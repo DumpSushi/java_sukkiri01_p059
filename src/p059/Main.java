@@ -1,9 +1,11 @@
 package p059;
 
 import java.time.Instant;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class Main {
 
@@ -38,6 +40,22 @@ public class Main {
 			ZonedDateTime z1 = l2.atZone(ZoneId.of("Europe/London"));
 			LocalDateTime l3 = z1.toLocalDateTime();
 			System.out.println(l3);
+		}
+
+		// list 2-4
+		{
+			DateTimeFormatter f = DateTimeFormatter.ofPattern("yyyy/MM/dd");
+			LocalDate d = LocalDate.parse("2011/08/21", f);
+
+			d = d.plusDays(1000);
+			String str = d.format(f);
+			System.out.println("1000日後は" + str);
+
+			LocalDate now = LocalDate.now();
+			if(now.isAfter(d))
+			{
+				System.out.println("nowはdより新しい");
+			}
 		}
 	}
 
